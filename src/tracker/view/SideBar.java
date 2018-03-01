@@ -1,16 +1,16 @@
 package tracker.view;
 
 import java.awt.Color;
-import javax.swing.JScrollPane;
+import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import tracker.controller.TrackerController;
 
-public class ScrollPanel extends JScrollPane
+public class SideBar extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	private TrackerController appController;
 	
-	public ScrollPanel(TrackerController appController)
+	public SideBar(TrackerController appController)
 	{
 		super();
 		this.appController = appController;
@@ -19,7 +19,7 @@ public class ScrollPanel extends JScrollPane
 	
 	private void setupPanel()
 	{
-		this.getViewport().setBackground(Color.DARK_GRAY.brighter());
+		this.setBackground(Color.DARK_GRAY);
 		this.setBorder(new LineBorder(Color.BLACK, 3));
 	}
 }
