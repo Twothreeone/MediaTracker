@@ -1,6 +1,11 @@
 package tracker.model;
 
-public class Game
+import java.util.Date;
+
+public class Game extends Media
 {
-	private String company;
+	public Game(String title, String type, String[] genres, Date startDate, Date endDate, int rating)
+	{
+		super(title, type, genres, startDate, endDate, rating);
+	}
 }

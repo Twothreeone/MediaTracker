@@ -1,6 +1,11 @@
 package tracker.model;
 
-public class Book
+import java.util.Date;
+
+public class Book extends Media
 {
-	private String author;
+	public Book(String title, String type, String[] genres, Date startDate, Date endDate, int rating)
+	{
+		super(title, type, genres, startDate, endDate, rating);
+	}
 }
