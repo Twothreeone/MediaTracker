@@ -8,7 +8,6 @@ import tracker.controller.TrackerController;
 
 public class TrackerPanel extends JPanel
 {
-	private static final long serialVersionUID = 1L;
 	private TrackerController appController;
 	private SpringLayout appLayout;
 	private SideBar sideBar;

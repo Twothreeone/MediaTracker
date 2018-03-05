@@ -7,7 +7,6 @@ import tracker.controller.TrackerController;
 
 public class SideBar extends JPanel
 {
-	private static final long serialVersionUID = 1L;
 	private TrackerController appController;
 	
 	public SideBar(TrackerController appController)

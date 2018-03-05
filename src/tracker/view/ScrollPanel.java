@@ -7,7 +7,6 @@ import tracker.controller.TrackerController;
 
 public class ScrollPanel extends JScrollPane
 {
-	private static final long serialVersionUID = 1L;
 	private TrackerController appController;
 	
 	public ScrollPanel(TrackerController appController)

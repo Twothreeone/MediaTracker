@@ -7,7 +7,6 @@ import tracker.controller.TrackerController;
 
 public class TrackerFrame extends JFrame
 {
-	private static final long serialVersionUID = 1L;
 	private TrackerController appController;
 	private TrackerPanel appPanel;
 	
