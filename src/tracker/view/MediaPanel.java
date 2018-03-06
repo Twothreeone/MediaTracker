@@ -1,6 +1,8 @@
 package tracker.view;
 
+import java.awt.Color;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 import tracker.controller.TrackerController;
 
 public class MediaPanel extends JPanel
@@ -11,5 +13,12 @@ public class MediaPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
+		setupPanel();
+	}
+	
+	private void setupPanel()
+	{
+		this.setBackground(new Color((int)(Math.random() * 256),(int)(Math.random() * 256),(int)(Math.random() * 256)));
+		this.setBorder(new LineBorder(Color.BLACK, 3));
 	}
 }
