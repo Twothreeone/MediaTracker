@@ -10,7 +10,7 @@ public class MediaTable extends JTable
 	
 	public MediaTable(TrackerController appController)
 	{
-		super();
+		super(new Object[][]{{1,2,3,4,new MediaPanel(appController)}}, new Object[]{1,2,3,4,new MediaPanel(appController)});
 		this.setRowHeight(50);
 		this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		this.setBackground(Color.DARK_GRAY.brighter());
@@ -23,8 +23,6 @@ public class MediaTable extends JTable
 	
 	private void setupTable()
 	{
-		
-		MediaPanel panel = new MediaPanel(appController);
 		
 	}
 }
