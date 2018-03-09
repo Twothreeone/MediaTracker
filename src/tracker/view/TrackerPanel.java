@@ -1,6 +1,8 @@
 package tracker.view;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
@@ -22,7 +24,10 @@ public class TrackerPanel extends JPanel
 		appLayout = new SpringLayout();
 		sideBar = new SideBar(appController);
 		scrollPane = new JScrollPane();
-		table = new MediaTable(appController);
+		List<MediaPanel> panels = new ArrayList<MediaPanel>();
+		panels.add(new MediaPanel(appController));
+		panels.add(new MediaPanel(appController));
+		table = new MediaTable(appController, panels);
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
