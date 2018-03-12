@@ -1,8 +1,7 @@
 package tracker.view;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
@@ -30,9 +29,33 @@ public class TrackerPanel extends JPanel
 
 	private void setupScrollPane()
 	{
-		scrollPane.setViewportView(new JPanel()); // Placeholder
+		JPanel panel;
+		panel = new JPanel();
+		panel.setLayout(new GridLayout(20, 1));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		panel.add(new MediaPanel(appController));
+		scrollPane.setViewportView(panel);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 		scrollPane.getViewport().setBackground(Color.DARK_GRAY.brighter());
 		scrollPane.setBorder(new LineBorder(Color.BLACK, 5));
 	}
