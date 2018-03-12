@@ -15,8 +15,7 @@ public class TrackerPanel extends JPanel
 	private SpringLayout appLayout;
 	private SideBar sideBar;
 	private JScrollPane scrollPane;
-	private MediaTable table;
-	
+
 	public TrackerPanel(TrackerController appController)
 	{
 		super();
@@ -24,24 +23,20 @@ public class TrackerPanel extends JPanel
 		appLayout = new SpringLayout();
 		sideBar = new SideBar(appController);
 		scrollPane = new JScrollPane();
-		List<MediaPanel> panels = new ArrayList<MediaPanel>();
-		panels.add(new MediaPanel(appController));
-		panels.add(new MediaPanel(appController));
-		table = new MediaTable(appController, panels);
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
 	}
-	
+
 	private void setupScrollPane()
 	{
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(new JPanel()); // Placeholder
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.getViewport().setBackground(Color.DARK_GRAY.brighter());
 		scrollPane.setBorder(new LineBorder(Color.BLACK, 5));
 	}
-	
+
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
@@ -50,7 +45,7 @@ public class TrackerPanel extends JPanel
 		this.setBackground(Color.DARK_GRAY);
 		this.setBorder(new LineBorder(Color.BLACK, 3));
 	}
-	
+
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, sideBar, 0, SpringLayout.NORTH, this);
