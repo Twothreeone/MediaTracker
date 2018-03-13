@@ -12,28 +12,27 @@ public class TrackerController
 
 	public TrackerController()
 	{
-		appFrame = new TrackerFrame(this);
+		//appFrame = new TrackerFrame(this);
 		media = new ArrayList<Media>();
-		for (int i = 0; i < 100000; i++)
+		for (int i = 0; i < 1000000; i++)
 		{
-			media.add(new Game(null, null, null, null, null, (int) (Math.random() * 200000)));
+			media.add(new Game(null, null, null, null, null, (int) (Math.random() * 4000000)));
 		}
-		for (int i = 0; i < 100000; i++)
+		for (int i = 0; i < 1000000; i++)
 		{
-			media.add(new Book(null, null, null, null, null, (int) (Math.random() * 200000)));
+			media.add(new Book(null, null, null, null, null, (int) (Math.random() * 4000000)));
 		}
-		for (int i = 0; i < 100000; i++)
+		for (int i = 0; i < 1000000; i++)
 		{
-			media.add(new Movie(null, null, null, null, null, (int) (Math.random() * 200000)));
+			media.add(new Movie(null, null, null, null, null, (int) (Math.random() * 4000000)));
 		}
-		for (int i = 0; i < 100000; i++)
+		for (int i = 0; i < 1000000; i++)
 		{
-			media.add(new Show(null, null, null, null, null, (int) (Math.random() * 200000)));
+			media.add(new Show(null, null, null, null, null, (int) (Math.random() * 4000000)));
 		}
+		long startTime = System.currentTimeMillis();
 		media.sort((obj1, obj2) -> obj1.getRating() - obj2.getRating());
-		for (Media med : media)
-		{
-			System.out.println(med.getRating());
-		}
+		long endTime = System.currentTimeMillis();
+		System.out.println(endTime - startTime);
 	}
 }
