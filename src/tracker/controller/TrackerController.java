@@ -13,16 +13,23 @@ public class TrackerController
 	public TrackerController()
 	{
 		// appFrame = new TrackerFrame(this);
-		String test = "qweoijsadfnvmxcvoeq2435234edaf4324lkjpqofjweio123454536ladfknxcvznalfwe65371iohkremkqnhaddovcx";
+		String test = "uejfuejfuejeuekaeoidkdoeodlf";
 		media = new ArrayList<Media>();
 		for (int i = 0; i < test.length(); i++)
 		{
-			media.add(new Game(test.substring(i, i + 1), null, null, null, null, 0));
+			media.add(new Game(test.substring(i, i + 1), null, null, null, null, (int) (Math.random() * 10)));
 		}
-		media.sort((obj1, obj2) -> obj1.getTitle().compareTo(obj2.getTitle()));
+		media.sort((obj1, obj2) -> 
+		{
+			if (obj1.getRating() - obj2.getRating() == 0)
+			{
+				return obj1.getTitle().compareTo(obj2.getTitle());
+			}
+			return obj1.getRating() - obj2.getRating();
+		});
 		for (int i = 0; i < media.size(); i++)
 		{
-			System.out.println(media.get(i).getTitle());
+			System.out.println(media.get(i).getTitle() + " " + media.get(i).getRating());
 		}
 	}
 }
