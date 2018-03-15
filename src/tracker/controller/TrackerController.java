@@ -12,27 +12,17 @@ public class TrackerController
 
 	public TrackerController()
 	{
-		//appFrame = new TrackerFrame(this);
+		// appFrame = new TrackerFrame(this);
+		String test = "qweoijsadfnvmxcvoeq2435234edaf4324lkjpqofjweio123454536ladfknxcvznalfwe65371iohkremkqnhaddovcx";
 		media = new ArrayList<Media>();
-		for (int i = 0; i < 1000000; i++)
+		for (int i = 0; i < test.length(); i++)
 		{
-			media.add(new Game(null, null, null, null, null, (int) (Math.random() * 4000000)));
+			media.add(new Game(test.substring(i, i + 1), null, null, null, null, 0));
 		}
-		for (int i = 0; i < 1000000; i++)
+		media.sort((obj1, obj2) -> obj1.getTitle().compareTo(obj2.getTitle()));
+		for (int i = 0; i < media.size(); i++)
 		{
-			media.add(new Book(null, null, null, null, null, (int) (Math.random() * 4000000)));
+			System.out.println(media.get(i).getTitle());
 		}
-		for (int i = 0; i < 1000000; i++)
-		{
-			media.add(new Movie(null, null, null, null, null, (int) (Math.random() * 4000000)));
-		}
-		for (int i = 0; i < 1000000; i++)
-		{
-			media.add(new Show(null, null, null, null, null, (int) (Math.random() * 4000000)));
-		}
-		long startTime = System.currentTimeMillis();
-		media.sort((obj1, obj2) -> obj1.getRating() - obj2.getRating());
-		long endTime = System.currentTimeMillis();
-		System.out.println(endTime - startTime);
 	}
 }
