@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import tracker.controller.TrackerController;
+import tracker.model.*;
 
 public class MediaPanel extends JPanel
 {
 	private TrackerController appController;
+	private Media media;
 	
-	public MediaPanel(TrackerController appController)
+	public MediaPanel(TrackerController appController, Media media)
 	{
 		super();
 		this.appController = appController;
