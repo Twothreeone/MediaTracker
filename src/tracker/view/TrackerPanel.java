@@ -17,6 +17,7 @@ public class TrackerPanel extends JPanel
 	private SpringLayout appLayout;
 	private SideBar sideBar;
 	private JScrollPane scrollPane;
+	private JPanel mediaPanels;
 
 	public TrackerPanel(TrackerController appController)
 	{
@@ -25,11 +26,12 @@ public class TrackerPanel extends JPanel
 		appLayout = new SpringLayout();
 		sideBar = new SideBar(appController);
 		scrollPane = new JScrollPane();
+		mediaPanels = new JPanel();
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		List<Media> list = new ArrayList<Media>();
-		for (int i = 0; i < 18; i++)
+		for (int i = 0; i < 12; i++)
 		{
 			list.add(new Book(null, null, null, null, null, 0));
 
@@ -42,8 +44,9 @@ public class TrackerPanel extends JPanel
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-		scrollPane.getViewport().setBackground(Color.DARK_GRAY.brighter());
+		scrollPane.setViewportView(mediaPanels);
 		scrollPane.setBorder(new LineBorder(Color.BLACK, 5));
+		mediaPanels.setBackground(Color.BLACK);
 	}
 
 	private void setupPanel()
@@ -54,7 +57,7 @@ public class TrackerPanel extends JPanel
 		this.setBackground(Color.DARK_GRAY);
 		this.setBorder(new LineBorder(Color.BLACK, 3));
 	}
-
+	
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, sideBar, 0, SpringLayout.NORTH, this);
@@ -69,33 +72,12 @@ public class TrackerPanel extends JPanel
 	
 	private void addMediaPanels(List<Media> media)
 	{
-		JPanel panel;
-		panel = new JPanel();
-		empty = new JPanel();
-		List<JPanel> emptys = new ArrayList<JPanel>();
-		if (media.size() > 20) 
-		{
-			panel.setLayout(new GridLayout(media.size(), 1));
-		}
-		else
-		{
-			panel.setLayout(new GridLayout(20, 1));
-		}
+		mediaPanels.removeAll();
+		mediaPanels.setLayout(new GridLayout(0, 1));
 		for (Media med : media)
 		{
-			panel.add(new MediaPanel(appController, med));
+			mediaPanels.add(new MediaPanel(appController, med));
 		}
-		for (int i = 0; i < 20 - media.size(); i++)
-		{
-			emptys.add(new JPanel);
-		}
-		for (JPanel empty : emptys)
-		{
-			panel.add(empty);
-		}
-		scrollPane.setViewportView(panel);
-		panel.setBackground(Color.BLACK);
-		empty.setBackground(Color.DARK_GRAY.brighter());
-		empty.setBorder(new LineBorder(Color.BLACK, 3));
+		mediaPanels.revalidate();
 	}
 }
