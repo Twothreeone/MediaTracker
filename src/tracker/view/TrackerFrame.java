@@ -1,7 +1,7 @@
 package tracker.view;
 
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import tracker.controller.TrackerController;
 
@@ -22,10 +22,10 @@ public class TrackerFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("Media Tracker");
-		this.setSize(500, 500);
-		this.setMinimumSize(new Dimension(400, 400));
+		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+		this.setSize(this.getWidth() - 150, this.getHeight() - 150);
 		this.setLocationRelativeTo(null);
-		this.setLocation(this.getX(), this.getY() - 100);
+		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.DARK_GRAY);
 		this.setVisible(true);

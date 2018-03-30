@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SpringLayout;
 import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 import tracker.controller.TrackerController;
 import tracker.model.*;
 
@@ -31,7 +33,7 @@ public class TrackerPanel extends JPanel
 		setupPanel();
 		setupLayout();
 		List<Media> list = new ArrayList<Media>();
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 30; i++)
 		{
 			list.add(new Book(null, null, null, null, null, 0));
 
@@ -77,6 +79,16 @@ public class TrackerPanel extends JPanel
 		for (Media med : media)
 		{
 			mediaPanels.add(new MediaPanel(appController, med));
+		}
+		for (int i = 0; i < (Toolkit.getDefaultToolkit().getScreenSize().getHeight() - 150) / 56 - media.size(); i++)
+		{
+			JPanel panel = new JPanel();
+			panel.setBackground(Color.DARK_GRAY.brighter());
+			if (i == 0)
+				panel.setBorder(new MatteBorder(3, 3, 0, 3, Color.BLACK));
+			else
+				panel.setBorder(new MatteBorder(0, 3, 0, 3, Color.BLACK));
+			mediaPanels.add(panel);
 		}
 		mediaPanels.revalidate();
 	}
