@@ -35,7 +35,7 @@ public class TrackerPanel extends JPanel
 		List<Media> list = new ArrayList<Media>();
 		for (int i = 0; i < 30; i++)
 		{
-			list.add(new Book(null, null, null, null, null, 0));
+			list.add(new Book("This is a book", "Paper", null, null, null, 0));
 
 		}
 		addMediaPanels(list);
