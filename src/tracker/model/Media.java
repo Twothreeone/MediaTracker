@@ -3,17 +3,19 @@ package tracker.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public abstract class Media implements Serializable
+public class Media implements Serializable
 {
-	protected String title, type;
+	protected String title, type, format, info;
 	protected String[] genres;
 	protected Date startDate, endDate;
 	protected int rating;
 	
-	public Media(String title, String type, String[] genres, Date startDate, Date endDate, int rating)
+	public Media(String title, String type, String format, String info, String[] genres, Date startDate, Date endDate, int rating)
 	{
 		this.title = title;
 		this.type = type;
+		this.format = format;
+		this.info = info;
 		this.genres = genres;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -50,6 +52,38 @@ public abstract class Media implements Serializable
 	public void setType(String type)
 	{
 		this.type = type;
+	}
+
+	/**
+	 * @return the format
+	 */
+	public String getFormat()
+	{
+		return format;
+	}
+
+	/**
+	 * @param format the format to set
+	 */
+	public void setFormat(String format)
+	{
+		this.format = format;
+	}
+
+	/**
+	 * @return the info
+	 */
+	public String getInfo()
+	{
+		return info;
+	}
+
+	/**
+	 * @param info the info to set
+	 */
+	public void setInfo(String info)
+	{
+		this.info = info;
 	}
 
 	/**
